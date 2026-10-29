@@ -5,6 +5,8 @@
 [![platform](https://img.shields.io/badge/platform-DSH%20Web%20%2F%20Desktop-blue)](#适用平台)
 [![license](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 
+中文 | [English](README.en.md)
+
 ---
 
 ## 目录
@@ -232,7 +234,10 @@ dsh-corner-alert/
 ├── locale/en.json        # 插件管理器里的英文标题/描述
 ├── locale/zh.json        # 中文标题/描述
 ├── icon.svg              # 插件图标
-├── README.md
+├── install.ps1           # Windows 安装脚本
+├── install.sh            # macOS/Linux 安装脚本
+├── DISCLAIMER.md         # 免责声明（中英）
+├── README.md / README.en.md
 ├── LICENSE
 └── tests/client.test.mjs # 离线测试：在模拟加载器里跑真实 client.js
 ```
@@ -250,6 +255,10 @@ node tests/client.test.mjs
 无构建步骤：`client.js` 是纯浏览器 JS，由 DSH 客户端模块图直接加载。
 
 ---
+
+## 免责声明
+
+本项目为第三方开源插件，**与 DeepSeek / DeepSeek Harness 官方无任何隶属或背书关系**；按 MIT「AS IS」提供，不附带任何担保，使用风险自负。提醒可能因宿主 API、通知权限、勿扰模式、宿主版本等因素延迟或失效；插件不收集、不上传任何数据；「热重启」可能刷新页面或重启进程并丢失未保存输入。完整条款见 [DISCLAIMER.md](DISCLAIMER.md)。
 
 ## License
 

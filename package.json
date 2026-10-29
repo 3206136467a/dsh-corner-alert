@@ -1,8 +1,26 @@
 {
   "name": "dsh-corner-alert",
   "version": "1.1.0",
-  "private": true,
-  "description": "Turn-complete and needs-user-action alerts plus a hot-restart DSH button: bottom-right toast, system notification sound.",
+  "private": false,
+  "description": "Turn-complete and needs-user-action alerts plus a hot-restart chip for the DeepSeek Harness Web GUI: bottom-right toast, system notification sound.",
+  "license": "MIT",
+  "author": "dsh-corner-alert contributors",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/3206136467a/dsh-corner-alert.git"
+  },
+  "homepage": "https://github.com/3206136467a/dsh-corner-alert#readme",
+  "bugs": {
+    "url": "https://github.com/3206136467a/dsh-corner-alert/issues"
+  },
+  "keywords": [
+    "dsh",
+    "deepseek-harness",
+    "plugin",
+    "notification",
+    "toast",
+    "hot-restart"
+  ],
   "type": "module",
   "main": "./index.js",
   "exports": {
@@ -20,9 +38,16 @@
     "cordis.patch.yml",
     "locale/*.json",
     "icon.svg",
+    "install.ps1",
+    "install.sh",
     "README.md",
+    "README.en.md",
+    "DISCLAIMER.md",
     "LICENSE"
   ],
+  "engines": {
+    "node": ">=18"
+  },
   "dsh": {
     "id": "dsh-corner-alert",
     "name": "Corner Alert",
