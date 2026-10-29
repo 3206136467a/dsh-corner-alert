@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Corner Alert",
+    "description": "Bottom-right toast plus a notification sound whenever a task finishes or the agent needs your action."
+  }
+}

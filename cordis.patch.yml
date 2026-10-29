@@ -1,0 +1,4 @@
+# dsh-corner-alert bundle patch: inserts the plugin row into a profile's layer stack.
+- insert:
+    - id: dsh-corner-alert
+      name: 'dsh-corner-alert'
