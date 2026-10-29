@@ -161,6 +161,14 @@ window.__ModuleLoader__.load({
       return audioContext;
     }
 
+    /** Resume the audio context after the first user gesture (autoplay policy). */
+    function unlockAudio() {
+      var context = audio();
+      if (context && context.state === 'suspended') {
+        try { context.resume().catch(function () {}); } catch (_error) {}
+      }
+    }
+
     /** Two-tone chime, schedule-safe, no external asset. */
     function playChime(kind) {
       var context = audio();
@@ -178,8 +186,8 @@ window.__ModuleLoader__.load({
           oscillator.type = "sine";
           oscillator.frequency.setValueAtTime(tones[i], start);
           gain.gain.setValueAtTime(0.0001, start);
-          gain.gain.exponentialRampToValueAtTime(0.16, start + 0.03);
-          gain.gain.exponentialRampToValueAtTime(0.0001, start + 0.34);
+          gain.gain.exponentialRampToValueAtTime(0.24, start + 0.03);
+          gain.gain.exponentialRampToValueAtTime(0.0001, start + 0.40);
           oscillator.connect(gain);
           gain.connect(context.destination);
           oscillator.start(start);
@@ -464,6 +472,11 @@ window.__ModuleLoader__.load({
      */
     function apply(ctx) {
       var store = createStore([]);
+      // Unlock WebAudio on the first interaction so the chime can play without a console window.
+      try {
+        globalThis.addEventListener('pointerdown', unlockAudio, { once: true });
+        globalThis.addEventListener('keydown', unlockAudio, { once: true });
+      } catch (_error) {}
       /** Monotonic banner identity, so two alerts in the same millisecond stay distinct. */
       var sequence = 0;
       var openSession = function (sessionId) {
